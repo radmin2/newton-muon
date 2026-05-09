@@ -48,7 +48,7 @@ def run_one(name: str, args: argparse.Namespace) -> list[dict[str, float | int |
     rows = []
     if args.device == "cuda":
         torch.cuda.synchronize()
-    t0 = time.perf_counter()
+    t0 = 0
 
     for step in range(args.steps + 1):
         opt.zero_grad(set_to_none=True)
@@ -57,6 +57,9 @@ def run_one(name: str, args: argparse.Namespace) -> list[dict[str, float | int |
             break
         loss.backward()
         opt.step()
+
+        if step == 0:
+            t0 = time.perf_counter()
 
         if args.device == "cuda":
             torch.cuda.synchronize()

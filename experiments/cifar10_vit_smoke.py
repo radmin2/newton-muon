@@ -118,7 +118,7 @@ def main() -> None:
     criterion = nn.CrossEntropyLoss()
 
     model.train()
-    t0 = time.perf_counter()
+    t0 = 0
     step = 0
     rows = []
     while step < args.steps:
@@ -130,6 +130,8 @@ def main() -> None:
             loss.backward()
             for opt in opts:
                 opt.step()
+            if step == 0:
+                t0 = time.perf_counter()
             step += 1
             elapsed = time.perf_counter() - t0
             rows.append(
