@@ -1,4 +1,0 @@
-optimizer,final_step,final_loss,wall_time_s,throughput,throughput_col,target_loss,time_to_target_s,steps_to_target
-adamw,200,0.3275205492973327,0.1000104260165244,1023893.2487206958,examples_per_s,2.0,0.069342436036095,135
-muon,200,10.952478408813477,0.2168055129586719,472312.7129129774,examples_per_s,2.0,,-1
-newton_muon,200,24.451801300048828,0.5491406130022369,186473.18660363383,examples_per_s,2.0,,-1
